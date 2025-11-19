@@ -21,10 +21,10 @@ export const fetchProductCatalog = (): Promise<Products[]> => {
     return new Promise((resolve, reject) => {
     setTimeout(() => {
         if (Math.random() < 0.8) {
-        resolve([
-            { id: 1, name: "Laptop", price: 1200 },
-            { id: 2, name: "Headphones", price: 200 },
-        ]);
+            resolve([
+                { id: 1, name: "Laptop", price: 1200 } ,
+                { id: 2, name: "Headphones", price: 200 },
+            ]);
         } else {
         reject("Failed to fetch product catalog");
         }
@@ -38,10 +38,10 @@ export const fetchProductReviews = (productId : number): Promise<Reviews[]> => {
         setTimeout(() =>{
             if (Math.random() < 0.6) {
                 resolve([
-                    {productId : productId, review: "Awesome"},
-                    {productId : productId, review: "Awesome"},
-                    {productId : productId, review: "Awesome"},
-                    {productId : productId, review: "Awesome"}
+                    {productId : 1, review: "Awesome"},
+                    {productId : 1, review: "Awesome"},
+                    {productId : 2, review: "Awesome"},
+                    {productId : 2, review: "Awesome"}
                 ])
             }else{
                 reject(`Failed to fetch reviews for product ID ${productId}"`)
@@ -54,9 +54,8 @@ export const fetchSalesReport = (productId : number): Promise<Report[]> => {
         setTimeout(() =>{
             if (Math.random() < 0.6) {
                 resolve([
-                    {productId : productId , totalSales : 8 , unitSold : 1500 , averagePrice : 75.95},
-                    {productId : productId , totalSales : 8 , unitSold : 1500 , averagePrice : 75.95},
-                    {productId : productId , totalSales : 8 , unitSold : 1500 , averagePrice : 75.95}
+                    {productId : 1 , totalSales : 8 , unitSold : 1500 , averagePrice : 75.95},
+                    {productId : 2 , totalSales : 8 , unitSold : 1500 , averagePrice : 75.95},
                 ])
             }else{
                 reject("Failed to fetch sales report")

@@ -2,6 +2,27 @@ import { fetchProductCatalog } from "./apiSimulator"
 import { fetchProductReviews } from "./apiSimulator"
 import { fetchSalesReport } from "./apiSimulator"
 
-function displayData() {
+try{
+
+    fetchProductCatalog()
+    .then((product) => {
+        console.log(product)
+    })
+    .catch((error) => console.error(error))
     
+    fetchProductReviews(1)
+    .then((reviews) =>{
+        const review = reviews.filter((el) => el.productId === 1)
+        console.log(review)
+    })
+    .catch((error) => console.error(error))
+    
+    
+    fetchSalesReport(1).then((report) =>{
+        console.log(report)
+    }).catch((error) => console.error(error))
+}catch(e){
+    console.error(e)
+}finally{
+    console.log("All API calls have been tempted.")
 }
