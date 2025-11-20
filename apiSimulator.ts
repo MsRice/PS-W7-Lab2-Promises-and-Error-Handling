@@ -1,3 +1,5 @@
+
+
 interface Products {
     id: number; 
     name: string; 
@@ -16,6 +18,22 @@ interface Report {
     averagePrice : number
 }
 
+export class NetworkError extends Error {
+    status: number
+
+    constructor(message:string , status: number){
+        super(message)
+        this.status =status
+    }
+}
+
+export class DataError extends Error{
+    constructor(message:string , status: number){
+        super(message)
+        this.name = 'DataError'
+    }
+
+}
 
 export const fetchProductCatalog = (): Promise<Products[]> => {
     return new Promise((resolve, reject) => {
@@ -31,6 +49,7 @@ export const fetchProductCatalog = (): Promise<Products[]> => {
     }, 1000);
     });
 };
+
 
 
 export const fetchProductReviews = (productId : number): Promise<Reviews[]> => {
